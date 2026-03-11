@@ -16,6 +16,7 @@
 :root {
   --navy: #0b2a4a;
   --navy-mid: #143a63;
+  --navy-light: #1a456e;
   --orange: #ff8c2a;
   --orange-dark: #e67a1f;
   --white: #ffffff;
@@ -62,7 +63,7 @@ nav a:hover { color: white; }
 /* ── HERO ── */
 .hero {
   position: relative;
-  padding: 80px 48px;
+  padding: 96px 48px;
   background: var(--navy);
   overflow: hidden;
 }
@@ -77,59 +78,211 @@ nav a:hover { color: white; }
   background-position: center right;
 }
 
-.hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
-
-.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
-.hero h1 { font-weight: 700; font-size: clamp(32px, 5vw, 58px); color: white; line-height: 1.1; margin-bottom: 16px; max-width: 700px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; }
-.hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); font-weight: 300; max-width: 560px; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
-
-/* ── AREA BAND (navy) ── */
-.area-band {
-  background: var(--navy);
-  padding: 56px 48px;
+/* subtle diagonal grid overlay on hero */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.015) 0px,
+    rgba(255,255,255,0.015) 1px,
+    transparent 1px,
+    transparent 12px
+  );
 }
 
-/* ── AREA BAND (white) ── */
+.hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+
+/* orange left rule on hero text block */
+.hero-inner::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--orange);
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.05s;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.1s;
+}
+
+.hero h1 {
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  color: white;
+  line-height: 1.05;
+  margin-bottom: 20px;
+  max-width: 700px;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.25s;
+  letter-spacing: -0.5px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,0.62);
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.85;
+  opacity: 0;
+  animation: fadeUp 0.7s ease forwards 0.4s;
+}
+
+/* ── SECTION BANDS ── */
+
+/* navy band */
+.area-band {
+  background: var(--navy);
+  padding: 72px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle diagonal texture on navy */
+.area-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.018) 0px,
+    rgba(255,255,255,0.018) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  pointer-events: none;
+}
+
+/* orange left-edge accent bar */
+.area-band::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--orange), var(--orange-dark));
+}
+
+/* white band */
 .area-band-light {
-  background: var(--white);
-  padding: 56px 48px;
+  background: var(--off-white);
+  padding: 72px 48px;
   border-bottom: 1px solid var(--gray);
+  position: relative;
+}
+
+/* left-edge accent on light band */
+.area-band-light::after {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, var(--orange), var(--orange-dark));
 }
 
 .area-band-inner {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 48px;
+  gap: 56px;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-.area-band-emoji {
-  font-size: 88px;
-  line-height: 1;
+/* ── ICON BADGE ── */
+.area-band-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   flex-shrink: 0;
 }
 
+.area-band-icon-wrap.light {
+  background: rgba(11,42,74,0.07);
+  border: 1px solid rgba(11,42,74,0.12);
+}
+
+.area-band-emoji {
+  font-size: 44px;
+  line-height: 1;
+}
+
+/* ── EYEBROW & HEADINGS ── */
 .area-eyebrow {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.area-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
 }
 
 /* navy band text */
-.area-band .area-band-content h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: white; line-height: 1.1; margin-bottom: 20px; }
-.area-band .area-band-content p { font-size: 16px; color: rgba(255,255,255,0.68); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
-.area-band .area-band-content p:last-of-type { margin-bottom: 28px; }
+.area-band .area-band-content h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+}
+.area-band .area-band-content p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.62);
+  font-weight: 300;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.area-band .area-band-content p:last-of-type { margin-bottom: 32px; }
 
 /* white band text */
-.area-band-light .area-band-content h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--navy); line-height: 1.1; margin-bottom: 20px; }
-.area-band-light .area-band-content p { font-size: 16px; color: var(--text-light); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
-.area-band-light .area-band-content p:last-of-type { margin-bottom: 28px; }
+.area-band-light .area-band-content h2 {
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 18px;
+  letter-spacing: -0.3px;
+}
+.area-band-light .area-band-content p {
+  font-size: 15px;
+  color: var(--text-light);
+  font-weight: 300;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.area-band-light .area-band-content p:last-of-type { margin-bottom: 32px; }
 
+/* ── BUTTONS ── */
 .btn-primary {
   background: var(--orange);
   color: white;
@@ -137,13 +290,21 @@ nav a:hover { color: white; }
   border-radius: 3px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
-  display: inline-block;
-  transition: background 0.3s, transform 0.2s;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 10px rgba(255,140,42,0.3);
 }
-.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+.btn-primary:hover {
+  background: var(--orange-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,140,42,0.35);
+}
 
-/* ── TOOLS SECTION ── */
+/* ── TOOLS AREA ── */
 .area-services {
   background: var(--white);
   padding: 64px 48px;
@@ -163,64 +324,92 @@ nav a:hover { color: white; }
   background: var(--off-white);
   border: 1px solid var(--gray);
   border-top: 3px solid var(--navy);
-  padding: 28px 24px 32px;
+  padding: 32px 28px 36px;
   border-radius: 2px;
-  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition: border-top-color 0.25s, box-shadow 0.25s, transform 0.25s;
   text-decoration: none;
   color: var(--text);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .service-card:hover {
   border-top-color: var(--orange);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+  transform: translateY(-3px);
 }
 
-.service-card-icon { font-size: 30px; margin-bottom: 14px; }
+/* bottom-right corner dot accent */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gray);
+  transition: background 0.25s;
+}
+.service-card:hover::after { background: var(--orange); }
+
+.service-card-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+  display: block;
+}
 
 .service-card h3 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--navy);
   margin-bottom: 14px;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--gray);
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
 }
 
 .service-card p {
   font-size: 13px;
   color: var(--text-light);
   font-weight: 300;
-  line-height: 1.75;
+  line-height: 1.8;
   flex: 1;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .service-card-link {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── DIVIDER ── */
+.area-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--navy-mid), var(--orange));
 }
 
 /* ── BACK ROW ── */
 .back-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-top: 32px;
   border-top: 1px solid var(--gray);
-  flex-wrap: wrap;
-  gap: 16px;
 }
 
 .back-to-top {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--text-light);
   text-decoration: none;
@@ -230,18 +419,29 @@ nav a:hover { color: white; }
   transition: color 0.2s;
 }
 .back-to-top:hover { color: var(--navy); }
-.back-to-top::before { content: '↑'; font-size: 14px; }
-
-/* ── DIVIDER ── */
-.area-divider {
-  height: 4px;
-  background: linear-gradient(90deg, var(--navy), var(--navy-mid), var(--orange));
-}
+.back-to-top::before { content: '↑'; font-size: 13px; }
 
 /* ── CTA STRIP ── */
 .cta-strip {
   background: var(--orange);
-  padding: 48px 48px;
+  padding: 52px 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* texture on cta strip */
+.cta-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255,255,255,0.04) 0px,
+    rgba(255,255,255,0.04) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+  pointer-events: none;
 }
 
 .cta-strip-inner {
@@ -252,10 +452,24 @@ nav a:hover { color: white; }
   justify-content: space-between;
   gap: 32px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
-.cta-strip h2 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: white; line-height: 1.2; }
-.cta-strip p { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 300; margin-top: 6px; }
+.cta-strip h2 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.cta-strip p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 300;
+  margin-top: 7px;
+}
 
 .btn-white {
   background: white;
@@ -264,12 +478,14 @@ nav a:hover { color: white; }
   border-radius: 3px;
   text-decoration: none;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
+  letter-spacing: 0.3px;
   white-space: nowrap;
   transition: transform 0.2s, box-shadow 0.2s;
   display: inline-block;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
 }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
 
 /* ── FOOTER ── */
 footer { background: #07192c; padding: 56px 48px 28px; }
@@ -289,6 +505,17 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
 
+/* ── SCROLL FADE-IN ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -296,10 +523,11 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 @media (max-width: 960px) {
   nav { display: none; }
   header { padding: 0 24px; }
-  .hero { padding: 56px 24px; }
-  .area-band, .area-band-light { padding: 48px 24px; }
-  .area-band-inner { grid-template-columns: 1fr; gap: 24px; }
-  .area-band-emoji { font-size: 64px; }
+  .hero { padding: 64px 24px; }
+  .area-band, .area-band-light { padding: 52px 24px; }
+  .area-band-inner { grid-template-columns: 1fr; gap: 28px; }
+  .area-band-icon-wrap { width: 72px; height: 72px; }
+  .area-band-emoji { font-size: 34px; }
   .area-services { padding: 48px 24px; }
   .services-grid { grid-template-columns: 1fr; gap: 16px; }
   .cta-strip { padding: 40px 24px; }
@@ -337,12 +565,14 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     BLOG — navy background
+     BLOG — navy
 ════════════════════════════════════════════════════════════ -->
 <section id="blog">
-  <div class="area-band">
+  <div class="area-band reveal">
     <div class="area-band-inner">
-      <div class="area-band-emoji">📰</div>
+      <div class="area-band-icon-wrap">
+        <span class="area-band-emoji">📰</span>
+      </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Articles</p>
         <h2>Florida Legal News &amp; Blog</h2>
@@ -358,12 +588,14 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     YOUTUBE — white background
+     YOUTUBE — off-white
 ════════════════════════════════════════════════════════════ -->
 <section id="videos">
-  <div class="area-band-light">
+  <div class="area-band-light reveal">
     <div class="area-band-inner">
-      <div class="area-band-emoji">▶️</div>
+      <div class="area-band-icon-wrap light">
+        <span class="area-band-emoji">▶️</span>
+      </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Video Library</p>
         <h2>Ready Legal on YouTube</h2>
@@ -383,9 +615,11 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 ════════════════════════════════════════════════════════════ -->
 <section id="tools">
 
-  <div class="area-band">
+  <div class="area-band reveal">
     <div class="area-band-inner">
-      <div class="area-band-emoji">⚙️</div>
+      <div class="area-band-icon-wrap">
+        <span class="area-band-emoji">⚙️</span>
+      </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Practice Tools</p>
         <h2>Florida Legal Tools &amp; Statutes</h2>
@@ -398,22 +632,22 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     <div class="area-services-inner">
       <div class="services-grid">
 
-        <a class="service-card" href="https://lientimer.readylegal.net" target="_blank" rel="noopener">
-          <div class="service-card-icon">⏱️</div>
+        <a class="service-card reveal" href="https://lientimer.readylegal.net" target="_blank" rel="noopener" style="transition-delay: 0.05s;">
+          <span class="service-card-icon">⏱️</span>
           <h3>Lien Timer Calculator</h3>
           <p>Calculate critical deadlines under Florida's construction lien law — including notices to owner, lien recording windows, and foreclosure timelines under Chapter 713.</p>
           <span class="service-card-link">Open Tool &rarr;</span>
         </a>
 
-        <a class="service-card" href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713PARTIContentsIndex.html" target="_blank" rel="noopener">
-          <div class="service-card-icon">📜</div>
+        <a class="service-card reveal" href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713PARTIContentsIndex.html" target="_blank" rel="noopener" style="transition-delay: 0.15s;">
+          <span class="service-card-icon">📜</span>
           <h3>Chapter 713 &mdash; Construction Liens</h3>
           <p>Florida's Construction Lien Law governing mechanics' liens, notices to owner, lien rights, and foreclosure procedures for contractors and property owners statewide.</p>
           <span class="service-card-link">Read Statute &rarr;</span>
         </a>
 
-        <a class="service-card" href="https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0558/0558ContentsIndex.html" target="_blank" rel="noopener">
-          <div class="service-card-icon">🏗️</div>
+        <a class="service-card reveal" href="https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0558/0558ContentsIndex.html" target="_blank" rel="noopener" style="transition-delay: 0.25s;">
+          <span class="service-card-icon">🏗️</span>
           <h3>Chapter 558 &mdash; Construction Defects</h3>
           <p>Florida's Construction Defect Notice Process establishing mandatory pre-suit procedures for construction defect disputes between contractors, owners, and developers.</p>
           <span class="service-card-link">Read Statute &rarr;</span>
@@ -485,6 +719,19 @@ footer { background: #07192c; padding: 56px 48px 28px; }
     </div>
   </div>
 </footer>
+
+<script>
+// Scroll-triggered reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
