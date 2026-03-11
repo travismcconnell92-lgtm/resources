@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources | Ready Legal</title>
+<meta name="description" content="Legal articles, videos, and tools for Florida contractors, property owners, and small businesses from Ready Legal.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --navy: #0b2a4a;
+  --navy-mid: #143a63;
+  --orange: #ff8c2a;
+  --orange-dark: #e67a1f;
+  --white: #ffffff;
+  --off-white: #f5f7fb;
+  --gray: #e4e8f0;
+  --text: #1a2332;
+  --text-light: #5a6478;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--navy);
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 68px;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.logo { color: white; text-decoration: none; font-weight: 700; font-size: 20px; letter-spacing: 4px; text-transform: uppercase; transition: color 0.3s; }
+.logo:hover { color: var(--orange); }
+
+nav { display: flex; gap: 28px; align-items: center; }
+nav a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s; }
+nav a:hover { color: white; }
+.nav-cta { background: var(--orange); color: white !important; padding: 9px 20px; border-radius: 3px; font-weight: 600 !important; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--orange-dark) !important; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  padding: 80px 48px;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
+    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
+  background-size: cover;
+  background-position: center right;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; }
+
+.hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.1s; }
+.hero h1 { font-weight: 700; font-size: clamp(32px, 5vw, 58px); color: white; line-height: 1.1; margin-bottom: 16px; max-width: 700px; opacity: 0; animation: fadeUp 0.7s ease forwards 0.25s; }
+.hero-sub { font-size: 16px; color: rgba(255,255,255,0.65); font-weight: 300; max-width: 560px; line-height: 1.8; opacity: 0; animation: fadeUp 0.7s ease forwards 0.4s; }
+
+/* ── AREA BAND (navy) ── */
+.area-band {
+  background: var(--navy);
+  padding: 56px 48px;
+}
+
+/* ── AREA BAND (white) ── */
+.area-band-light {
+  background: var(--white);
+  padding: 56px 48px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.area-band-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.area-band-emoji {
+  font-size: 88px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.area-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+/* navy band text */
+.area-band .area-band-content h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: white; line-height: 1.1; margin-bottom: 20px; }
+.area-band .area-band-content p { font-size: 16px; color: rgba(255,255,255,0.68); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+.area-band .area-band-content p:last-of-type { margin-bottom: 28px; }
+
+/* white band text */
+.area-band-light .area-band-content h2 { font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--navy); line-height: 1.1; margin-bottom: 20px; }
+.area-band-light .area-band-content p { font-size: 16px; color: var(--text-light); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+.area-band-light .area-band-content p:last-of-type { margin-bottom: 28px; }
+
+.btn-primary {
+  background: var(--orange);
+  color: white;
+  padding: 13px 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); }
+
+/* ── TOOLS SECTION ── */
+.area-services {
+  background: var(--white);
+  padding: 64px 48px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.area-services-inner { max-width: 1200px; margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.service-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray);
+  border-top: 3px solid var(--navy);
+  padding: 28px 24px 32px;
+  border-radius: 2px;
+  transition: border-top-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  border-top-color: var(--orange);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+
+.service-card-icon { font-size: 30px; margin-bottom: 14px; }
+
+.service-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gray);
+}
+
+.service-card p {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 300;
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 18px;
+}
+
+.service-card-link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* ── BACK ROW ── */
+.back-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--gray);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.back-to-top {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.back-to-top:hover { color: var(--navy); }
+.back-to-top::before { content: '↑'; font-size: 14px; }
+
+/* ── DIVIDER ── */
+.area-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--navy-mid), var(--orange));
+}
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  background: var(--orange);
+  padding: 48px 48px;
+}
+
+.cta-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.cta-strip h2 { font-size: clamp(20px, 2.5vw, 28px); font-weight: 700; color: white; line-height: 1.2; }
+.cta-strip p { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 300; margin-top: 6px; }
+
+.btn-white {
+  background: white;
+  color: var(--orange);
+  padding: 14px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+/* ── FOOTER ── */
+footer { background: #07192c; padding: 56px 48px 28px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 56px; padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,0.07); margin-bottom: 28px; }
+.footer-brand .logo { display: block; margin-bottom: 14px; }
+.footer-brand p { font-size: 13px; color: rgba(255,255,255,0.4); line-height: 1.8; max-width: 280px; }
+.footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--orange); }
+.footer-contact { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.3s; }
+.footer-contact a:hover { color: var(--orange); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; }
+.footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.2); line-height: 1.75; max-width: 680px; }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.25); white-space: nowrap; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { display: none; }
+  header { padding: 0 24px; }
+  .hero { padding: 56px 24px; }
+  .area-band, .area-band-light { padding: 48px 24px; }
+  .area-band-inner { grid-template-columns: 1fr; gap: 24px; }
+  .area-band-emoji { font-size: 64px; }
+  .area-services { padding: 48px 24px; }
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .cta-strip { padding: 40px 24px; }
+  .cta-strip-inner { flex-direction: column; align-items: flex-start; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 48px 24px 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+  <nav>
+    <a href="https://counsel.readylegal.net">Counsel</a>
+    <a href="https://practiceareas.readylegal.net">Practice Areas</a>
+    <a href="https://pricing.readylegal.net">Pricing</a>
+    <a href="https://about.readylegal.net">About</a>
+    <a href="#" style="color:white;">Resources</a>
+    <a href="https://home.readylegal.net#intake" class="nav-cta">Get Help</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Orlando, Florida &mdash; Statewide Representation</p>
+    <h1>Resources</h1>
+    <p class="hero-sub">Articles, videos, and tools to help Florida contractors, property owners, and businesses navigate construction and commercial law.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOG — navy background
+════════════════════════════════════════════════════════════ -->
+<section id="blog">
+  <div class="area-band">
+    <div class="area-band-inner">
+      <div class="area-band-emoji">📰</div>
+      <div class="area-band-content">
+        <p class="area-eyebrow">Articles</p>
+        <h2>Florida Legal News &amp; Blog</h2>
+        <p>Ready Legal publishes articles covering Florida construction law, business law, litigation, and regulatory updates — written for contractors, property owners, and small business owners.</p>
+        <p>Topics include mechanics' liens, contract issues, licensing, evictions, and recent developments in Florida courts.</p>
+        <a href="https://readylegal.net/articles/" target="_blank" rel="noopener" class="btn-primary">Visit the Blog &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="area-divider"></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     YOUTUBE — white background
+════════════════════════════════════════════════════════════ -->
+<section id="videos">
+  <div class="area-band-light">
+    <div class="area-band-inner">
+      <div class="area-band-emoji">▶️</div>
+      <div class="area-band-content">
+        <p class="area-eyebrow">Video Library</p>
+        <h2>Ready Legal on YouTube</h2>
+        <p>Attorney Travis McConnell publishes short videos on Florida construction law, contract issues, and business topics — designed to give contractors and business owners clear, practical guidance.</p>
+        <p>Subscribe to stay current on Florida legal developments that affect your business.</p>
+        <a href="https://www.youtube.com/@Ready-Legal-Florida/featured" target="_blank" rel="noopener" class="btn-primary">Visit Our YouTube Channel &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="area-divider"></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOOLS — navy band + white cards
+════════════════════════════════════════════════════════════ -->
+<section id="tools">
+
+  <div class="area-band">
+    <div class="area-band-inner">
+      <div class="area-band-emoji">⚙️</div>
+      <div class="area-band-content">
+        <p class="area-eyebrow">Practice Tools</p>
+        <h2>Florida Legal Tools &amp; Statutes</h2>
+        <p>Quick access to calculators and primary legal sources that Florida contractors, property owners, and businesses rely on when navigating construction and commercial law matters.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="area-services">
+    <div class="area-services-inner">
+      <div class="services-grid">
+
+        <a class="service-card" href="https://lientimer.readylegal.net" target="_blank" rel="noopener">
+          <div class="service-card-icon">⏱️</div>
+          <h3>Lien Timer Calculator</h3>
+          <p>Calculate critical deadlines under Florida's construction lien law — including notices to owner, lien recording windows, and foreclosure timelines under Chapter 713.</p>
+          <span class="service-card-link">Open Tool &rarr;</span>
+        </a>
+
+        <a class="service-card" href="https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0713/0713PARTIContentsIndex.html" target="_blank" rel="noopener">
+          <div class="service-card-icon">📜</div>
+          <h3>Chapter 713 &mdash; Construction Liens</h3>
+          <p>Florida's Construction Lien Law governing mechanics' liens, notices to owner, lien rights, and foreclosure procedures for contractors and property owners statewide.</p>
+          <span class="service-card-link">Read Statute &rarr;</span>
+        </a>
+
+        <a class="service-card" href="https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&URL=0500-0599/0558/0558ContentsIndex.html" target="_blank" rel="noopener">
+          <div class="service-card-icon">🏗️</div>
+          <h3>Chapter 558 &mdash; Construction Defects</h3>
+          <p>Florida's Construction Defect Notice Process establishing mandatory pre-suit procedures for construction defect disputes between contractors, owners, and developers.</p>
+          <span class="service-card-link">Read Statute &rarr;</span>
+        </a>
+
+      </div>
+
+      <div class="back-row">
+        <a href="#top" class="back-to-top">Back to Top</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <div>
+      <h2>Ready to speak with an attorney?</h2>
+      <p>Request a consultation and our team will follow up with next steps.</p>
+    </div>
+    <a href="https://home.readylegal.net#intake" class="btn-white">Get Help &rarr;</a>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="https://home.readylegal.net" class="logo">READY LEGAL</a>
+        <p>Prompt, capable, and effective legal representation for Orlando's small business community. Construction law, business law, and litigation throughout Florida.</p>
+        <br>
+        <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="https://counsel.readylegal.net">Counsel</a></li>
+          <li><a href="https://practiceareas.readylegal.net">Practice Areas</a></li>
+          <li><a href="https://pricing.readylegal.net">Pricing</a></li>
+          <li><a href="https://about.readylegal.net">About</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="https://home.readylegal.net#intake">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact">
+          924 N. Magnolia Avenue<br>
+          Suite 202, #1178<br>
+          Orlando, FL 32803<br>
+          <span style="font-size:11px; color:rgba(255,255,255,0.25);">*Postbox &mdash; mailing only</span>
+          <br><br>
+          <a href="tel:4072582002">(407) 258-2002</a><br>
+          <a href="mailto:admin@readylegal.net">admin@readylegal.net</a><br>
+          <a href="https://home.readylegal.net">www.readylegal.net</a>
+          <br><br>
+          Veteran Owned &#127482;&#127480;
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">The information on this page is for general informational purposes only and does not constitute legal advice. No attorney-client relationship is formed until a written engagement agreement has been executed by both parties. Services are limited to matters involving the State of Florida.</p>
+      <p class="footer-copy">&copy; 2025 Ready Legal</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
