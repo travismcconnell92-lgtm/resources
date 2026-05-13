@@ -68,18 +68,23 @@ nav a:hover { color: white; }
   overflow: hidden;
 }
 
-.hero-bg {
+.hero-video {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(100deg, rgba(11,42,74,0.97) 45%, rgba(11,42,74,0.6) 100%),
-    url("https://readylegal.net/wp-content/uploads/2025/05/mick-haupt-tyn3-cljx-a-unsplash.jpg");
-  background-size: cover;
-  background-position: center right;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, rgba(11,42,74,0.92) 45%, rgba(11,42,74,0.55) 100%);
 }
 
 /* subtle diagonal grid overlay on hero */
-.hero-bg::after {
+.hero-overlay::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -559,31 +564,34 @@ footer { background: #07192c; padding: 56px 48px 28px; }
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://videos.files.wordpress.com/ui7Rdx5c/5637833-hd_1280_720_25fps.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <p class="hero-eyebrow">Orlando, Florida — Statewide Representation</p>
     <h1>Resources</h1>
-    <p class="hero-sub">Articles, videos, and tools to help Florida 
-contractors, property owners, and businesses navigate construction and 
+    <p class="hero-sub">Articles, videos, and tools to help Florida
+contractors, property owners, and businesses navigate construction and
 commercial law.</p>
   </div>
 </section>
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     BLOG — navy
+     BLOG — off-white (swapped from navy to break up hero)
 ════════════════════════════════════════════════════════════ -->
 <section id="blog">
-  <div class="area-band reveal visible">
+  <div class="area-band-light reveal visible">
     <div class="area-band-inner">
-      <div class="area-band-icon-wrap">
+      <div class="area-band-icon-wrap light">
         <span class="area-band-emoji">📰</span>
       </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Articles</p>
         <h2>Florida Legal News &amp; Blog</h2>
-        <p>Ready Legal publishes articles covering Florida construction 
-law, business law, litigation, and regulatory updates — written for 
+        <p>Ready Legal publishes articles covering Florida construction
+law, business law, litigation, and regulatory updates — written for
 contractors, property owners, and small business owners.</p>
         <p>Topics include mechanics' liens, contract issues, licensing, evictions, and recent developments in Florida courts.</p>
         <a href="https://readylegal.net/articles/" target="_blank" rel="noopener" class="btn-primary">Visit the Blog →</a>
@@ -596,19 +604,19 @@ contractors, property owners, and small business owners.</p>
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     YOUTUBE — off-white
+     YOUTUBE — navy (swapped from off-white)
 ════════════════════════════════════════════════════════════ -->
 <section id="videos">
-  <div class="area-band-light reveal visible">
+  <div class="area-band reveal visible">
     <div class="area-band-inner">
-      <div class="area-band-icon-wrap light">
+      <div class="area-band-icon-wrap">
         <span class="area-band-emoji">▶️</span>
       </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Video Library</p>
         <h2>Ready Legal on YouTube</h2>
-        <p>Attorney Travis McConnell publishes short videos on Florida 
-construction law, contract issues, and business topics — designed to 
+        <p>Attorney Travis McConnell publishes short videos on Florida
+construction law, contract issues, and business topics — designed to
 give contractors and business owners clear, practical guidance.</p>
         <p>Subscribe to stay current on Florida legal developments that affect your business.</p>
         <a href="https://www.youtube.com/@Ready-Legal-Florida/featured" target="_blank" rel="noopener" class="btn-primary">Visit Our YouTube Channel →</a>
@@ -621,20 +629,20 @@ give contractors and business owners clear, practical guidance.</p>
 
 
 <!-- ═══════════════════════════════════════════════════════════
-     TOOLS — navy band + white cards
+     TOOLS — off-white band + white cards
 ════════════════════════════════════════════════════════════ -->
 <section id="tools">
 
-  <div class="area-band reveal visible">
+  <div class="area-band-light reveal visible">
     <div class="area-band-inner">
-      <div class="area-band-icon-wrap">
+      <div class="area-band-icon-wrap light">
         <span class="area-band-emoji">⚙️</span>
       </div>
       <div class="area-band-content">
         <p class="area-eyebrow">Practice Tools</p>
         <h2>Florida Legal Tools &amp; Statutes</h2>
-        <p>Quick access to calculators and primary legal sources that 
-Florida contractors, property owners, and businesses rely on when 
+        <p>Quick access to calculators and primary legal sources that
+Florida contractors, property owners, and businesses rely on when
 navigating construction and commercial law matters.</p>
       </div>
     </div>
@@ -647,8 +655,8 @@ navigating construction and commercial law matters.</p>
         <a class="service-card reveal visible" href="https://lientimer.readylegal.net/" target="_blank" rel="noopener" style="transition-delay: 0.05s;">
           <span class="service-card-icon">⏱️</span>
           <h3>Lien Timer Calculator</h3>
-          <p>Calculate critical deadlines under Florida's construction 
-lien law — including notices to owner, lien recording windows, and 
+          <p>Calculate critical deadlines under Florida's construction
+lien law — including notices to owner, lien recording windows, and
 foreclosure timelines under Chapter 713.</p>
           <span class="service-card-link">Open Tool →</span>
         </a>
@@ -657,7 +665,7 @@ foreclosure timelines under Chapter 713.</p>
           <span class="service-card-icon">📜</span>
           <h3>Chapter 713 — Construction Liens</h3>
           <p>Florida's Construction Lien Law governing mechanics' liens,
- notices to owner, lien rights, and foreclosure procedures for 
+ notices to owner, lien rights, and foreclosure procedures for
 contractors and property owners statewide.</p>
           <span class="service-card-link">Read Statute →</span>
         </a>
@@ -665,8 +673,8 @@ contractors and property owners statewide.</p>
         <a class="service-card reveal visible" href="https://www.leg.state.fl.us/Statutes/index.cfm?App_mode=Display_Statute&amp;URL=0500-0599/0558/0558ContentsIndex.html" target="_blank" rel="noopener" style="transition-delay: 0.25s;">
           <span class="service-card-icon">🏗️</span>
           <h3>Chapter 558 — Construction Defects</h3>
-          <p>Florida's Construction Defect Notice Process establishing 
-mandatory pre-suit procedures for construction defect disputes between 
+          <p>Florida's Construction Defect Notice Process establishing
+mandatory pre-suit procedures for construction defect disputes between
 contractors, owners, and developers.</p>
           <span class="service-card-link">Read Statute →</span>
         </a>
@@ -674,7 +682,10 @@ contractors, owners, and developers.</p>
         <a class="service-card reveal visible" href="https://budget.readylegal.net/" target="_blank" rel="noopener" style="transition-delay: 0.35s;">
           <span class="service-card-icon">⚖️</span>
           <h3>Litigation Budget Calculator</h3>
-          <p>Build a phase-by-phase litigation budget using the L100–L500 framework. Model fees by timekeeper, estimate hard costs, and generate best/likely/worst-case scenario ranges for client communication.</p>
+          <p>Build a phase-by-phase litigation budget using the
+L100–L500 framework. Model fees by timekeeper, estimate hard costs, and
+generate best/likely/worst-case scenario ranges for client
+communication.</p>
           <span class="service-card-link">Open Tool →</span>
         </a>
 
@@ -707,8 +718,8 @@ contractors, owners, and developers.</p>
     <div class="footer-top">
       <div class="footer-brand">
         <a href="https://home.readylegal.net/" class="logo">READY LEGAL</a>
-        <p>Prompt, capable, and effective legal representation for 
-Orlando's small business community. Construction law, business law, and 
+        <p>Prompt, capable, and effective legal representation for
+Orlando's small business community. Construction law, business law, and
 litigation throughout Florida.</p>
         <br>
         <p style="font-size:11px; color:rgba(255,255,255,0.22);">Ready Legal is the operating name of Travis McConnell, PLLC.</p>
@@ -741,10 +752,10 @@ litigation throughout Florida.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-disclaimer">The information on this page is for 
-general informational purposes only and does not constitute legal 
-advice. No attorney-client relationship is formed until a written 
-engagement agreement has been executed by both parties. Services are 
+      <p class="footer-disclaimer">The information on this page is for
+general informational purposes only and does not constitute legal
+advice. No attorney-client relationship is formed until a written
+engagement agreement has been executed by both parties. Services are
 limited to matters involving the State of Florida.</p>
       <p class="footer-copy">© 2025 Ready Legal</p>
     </div>
@@ -763,6 +774,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
+
 
 
 
